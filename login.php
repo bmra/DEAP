@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect based on the user type
     if ($type == '1') {
-      header("Location: ../Admin/adminHome.html");
+      header("Location: Admin/adminHome.html");
     } elseif ($type == '2') {
-      header("Location: ../Medico/medicoHome.html");
+      header("Location: Medico/medicoHome.html");
     } elseif ($type == '3') {
-      header("Location: ../Paciente/pacienteHome.html");
+      header("Location: Paciente/pacienteHome.html");
     } else {
       echo "Invalid user type.";
     }
