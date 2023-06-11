@@ -9,23 +9,23 @@
   <h1 class="logo">Perfil</h1>
   
     <div class="rectangle">
-      <form id="form"  name="id" method="POST" action="painel.php"> 
+      <form id="form"   method="POST" action="painel.php"> 
       <div class="info-input"> 
         <label for="name">Nome:</label>
-        <input type="text" name="nomeInput" >
+        <input type="text"    id="nomeInput" name="nomeInput" >
       </div>
       <div class="info-input">
         <label for="age"> Idade:</label>
-        <input type="text" name="idadeInput" oninput="validaridade()">
+        <input type="text"  id="idadeInput" name="idadeInput" oninput="validaridade()">
       </div>
       <div class="info-input">
         <label for="number">Número:</label>
-        <input type="text" name="numeroInput" oninput="validarnumero()">
+        <input type="text"  id="numeroInput"  name="numeroInput" oninput="validarnumero()">
       </div>
 
        <div class="info-input">
         <label for="email">Email:</label>
-        <input type="email" name="emailInput" oninput="validaremail()">
+        <input type="email" id="emailInput"  name="emailInput" oninput="validaremail()">
       </div>
       <button class="submit">Salvar</button>
       </form>

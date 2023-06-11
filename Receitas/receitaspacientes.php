@@ -52,7 +52,7 @@ if ($connection->connect_error) {
         echo '<th>ID Medico</th>';
         echo '<th>ID Paciente</th>';
         echo '<th>Medicamento</th>';
-        echo '<th>Ref_Receita</th>';
+        echo '<th>Referência da Receita</th>';
         echo '<th>Descrição</th>';
         echo '<th>Data de Emissão</th>';
         echo '<th>Data de Validade</th>';
