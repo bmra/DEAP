@@ -12,20 +12,20 @@
       <form id="form" method="POST" action="painel.php"> 
       <div class="info-input">
         <label for="name">Nome:</label>
-        <input type="text" id="nomeInput" >
+        <input type="text" name="nomeInput" >
       </div>
       <div class="info-input">
         <label for="age"> Idade:</label>
-        <input type="text" id="idadeInput" oninput="validaridade()">
+        <input type="text" name="idadeInput" oninput="validaridade()">
       </div>
       <div class="info-input">
         <label for="number">Número:</label>
-        <input type="text" id="numeroInput" oninput="validarnumero()">
+        <input type="text" name="numeroInput" oninput="validarnumero()">
       </div>
 
        <div class="info-input">
         <label for="email">Email:</label>
-        <input type="email" id="emailInput" oninput="validaremail()">
+        <input type="email" name="emailInput" oninput="validaremail()">
       </div>
       <button class="submit">Salvar</button>
       </form>
