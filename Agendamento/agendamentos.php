@@ -32,19 +32,19 @@
         die("Falha ao estabelecer conexão: " . $connection->connect_error);
     }
 
-    // tratar da submissão do formulário para adicionar novo utilizador
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_agendamento'])) { // apenas se for um POST e o form for para adicionar o utilizador
+    //Tratar da submissão do formulário para adicionar novo Agendamento
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_agendamento'])) { // apenas se for um POST e o form for para adicionar o agendaemnto
         $id_medico = isset($_POST['id_medico']) ? $_POST['id_medico'] : '';
         $id_paciente = isset($_POST['id_paciente']) ? $_POST['id_paciente'] : '';
         $data_agendamento = isset($_POST['data_agendamento']) ? $_POST['data_agendamento'] : '';
         $hora_agendamento = isset($_POST['hora_agendamento']) ? $_POST['hora_agendamento'] : '';
         $descricao = isset($_POST['descricao']) ? $_POST['descricao'] : '';
 
-        // inserir o médico na base de dados
+        // inserir o agendamento na base de dados
         $query = "INSERT INTO agendamentos (id_medico, id_paciente, data_agendamento, hora_agendamento, descricao) VALUES ('$id_medico', '$id_paciente', $data_agendamento, '$hora_agendamento', '$descricao')";
         $result = mysqli_query($connection, $query);
 
-        // se a query foi um sucesso ou seja se o resultado existe ou tem alguma coisa, mostrar uma mensagem de sucesso, senão mostrar mensagem de erro
+        // se a query foi um sucesso, ou seja, se o resultado existe, mostrar uma mensagem de sucesso, senão mostrar mensagem de erro
         if ($result) {
             echo '<p>Novo Agendamento adicionado com sucesso.</p>';
         } else {
@@ -52,11 +52,11 @@
         }
     }
 
-    // tratar da submissão do formulário para remover utilizador
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_agendamento'])) { // apenas se for um POST e o botão "Remover" for clicado ou seja o form é o remove_agendamento
+    // tratar da submissão do formulário para remover agendamento
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove_agendamento'])) { // apenas se for um POST e o botão "Remover" for clicado, ou seja, o form é o remove_agendamento
         $agendamento_id = $_POST['agendamento_id'];
 
-        // query para remover o utilizador
+        // query para remover o agendamento
         $query = "DELETE FROM agendamentos WHERE id = $agendamento_id";
         $result = mysqli_query($connection, $query);
 
@@ -69,7 +69,7 @@
     }
     ?>
 
-    <!-- Formulário para adicionar novo utilizador -->
+    <!-- Formulário para adicionar novo agendamento -->
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
         <label for="id_medico">ID do Medico:</label>
@@ -92,12 +92,12 @@
     </form>
 
     <?php
-    // query para obter os utilizadores do tipo 2 (médicos)
+    // query para obter toda a informação dos agendamentos da tabela agendamentos
     $query = "SELECT id, id_medico, id_paciente, data_agendamento, hora_agendamento, descricao FROM agendamentos";
     //executa a query
     $result = mysqli_query($connection, $query);
 
-    // se a query foi um sucesso, mostrar os utilizadores encontrados na base de dados
+    // se a query foi um sucesso, mostrar os agendamentos encontrados na base de dados
     if ($result && mysqli_num_rows($result) > 0) {
         echo '<table>';
         echo '<thead>';
@@ -113,7 +113,7 @@
         echo '</thead>';
         echo '<tbody>';
 
-        // iterar pelos utilizadores encontrados e inserir na tabela as linhas (tr) com as colunas (th)
+        // iterar pelos agendamentos encontrados e inserir na tabela as linhas (tr) com as colunas (th)
         while ($row = mysqli_fetch_assoc($result)) {
             echo '<tr>';
             echo '<td>' . $row['id'] . '</td>';
