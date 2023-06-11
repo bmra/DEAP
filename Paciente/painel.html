@@ -9,7 +9,7 @@
   <h1 class="logo">Perfil</h1>
   
     <div class="rectangle">
-      <form id="form" method="POST" action="painel.php"> 
+      <form id="form"  name="id" method="POST" action="painel.php"> 
       <div class="info-input">
         <label for="name">Nome:</label>
         <input type="text" name="nomeInput" >
@@ -36,7 +36,7 @@
     const nameInput = document.querySelector("#nomeInput");
     const ageInput = document.querySelector("#idadeInput");
     const numberInput = document.querySelector("#numeroInput");
-    const moradaInput = document.querySelector("#moradaInput");
+
     const emailInput = document.querySelector("#emailInput");
 
     form.addEventListener ("submit", (event)=>{
