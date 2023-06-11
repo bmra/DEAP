@@ -15,7 +15,7 @@
     </style>
 </head>
 <body>
-    <h1>Rceitas</h1>
+    <h1>Receitas</h1>
 
     <?php
     //detalhes para a conexão á base de dados
