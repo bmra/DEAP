@@ -9,8 +9,8 @@ session_start();
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-  // Get the submitted username and password
-  $username = $_POST['username'];
+  // Get the submitted email and password
+  $email = $_POST['email'];
   $password = $_POST['password'];
 
   // Create a database connection
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Prepare and execute the SQL statement
-  $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+  $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
   $result = $conn->query($sql);
 
   // Check if the login is successful
@@ -36,17 +36,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['user_id'] = $user_id;
 
     // Redirect based on the user type
-    if ($type == '1') {
+    if ($type == 'admin') {
       header("Location: Admin/adminHome.html");
-    } elseif ($type == '2') {
+    } elseif ($type == 'medico') {
       header("Location: Medico/medicoHome.html");
-    } elseif ($type == '3') {
+    } elseif ($type == 'paciente') {
       header("Location: Paciente/pacienteHome.html");
     } else {
       echo "Invalid user type.";
     }
   } else {
-    echo "Invalid username or password.";
+    echo "Invalid email or password.";
   }
 
   // Close the database connection
