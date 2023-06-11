@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
     // Execute a consulta SQL para buscar os dados do registro pelo ID
-    $sql = "SELECT * FROM pacientes WHERE id = $id"; // substitua "nome_da_tabela" pelo nome correto da tabela
+    $sql = "SELECT* FROM pacientes WHERE id = $id"; // substitua "nome_da_tabela" pelo nome correto da tabela
     $resultado = mysqli_query($conn, $sql);
 
     // Verifique se existe um registro com o ID fornecido
@@ -23,8 +23,8 @@ if (isset($_GET['id'])) {
         ?>
         <form action="atualizar.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-            Número: <input type="text" name="numeroInput" value="<?php echo $row['numeroInput']; ?>"><br>
-            Email: <input type="text" name="emailInput" value="<?php echo $row['emailInput']; ?>"><br>
+            Número: <input type="text" name="numeroInput" value="<?php echo $row['numero']; ?>"><br>
+            Email: <input type="text" name="emailInput" value="<?php echo $row['email']; ?>"><br>
             <input type="submit" value="Atualizar">
         </form>
         

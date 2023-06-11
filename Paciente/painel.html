@@ -10,7 +10,7 @@
   
     <div class="rectangle">
       <form id="form"  name="id" method="POST" action="painel.php"> 
-      <div class="info-input">
+      <div class="info-input"> 
         <label for="name">Nome:</label>
         <input type="text" name="nomeInput" >
       </div>
@@ -107,16 +107,9 @@ function validaremail(email){
   return true;
 }
 
-var xttp=  new XMLHttpRequest();
 
-xttp.onreadystatechange=function(){
-  if(this.readyState== 4 && this.status == 200){
-    var form = document.getElementById("form");
-    form.innerHTML= this.responseText;
-  }
-};
-xttp.open("GET","pacientes",true);
-xttp.send();
+
+
 
   </script>
 </body>
