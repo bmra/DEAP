@@ -3,27 +3,37 @@
 <head>
     <title>Pagina de Agendamentos</title>
     <style>
-   body {
-  background-color: #f2f2f2;
-  font-family: Arial, sans-serif;
-}
+body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
 
-h1 {
-  text-align: center;
-  margin-top: 30px;
-}
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-table, th, td {
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-}
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
     </style>
 </head>
 <body>
