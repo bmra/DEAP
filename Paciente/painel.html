@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Painel do Paciente</title>
+  <link rel="stylesheet" href="../Paciente/painel1.css">
+  
+</head>
+<body>
+  <h1 class="logo">Perfil</h1>
+  
+    <div class="rectangle">
+      <form id="form"   method="POST" action="../Paciente/painel.php"> 
+      <div class="info-input"> 
+        <label for="name">Nome:</label>
+        <input type="text"    id="nomeInput" name="nomeInput" >
+      </div>
+      <div class="info-input">
+        <label for="age"> Idade:</label>
+        <input type="text"  id="idadeInput" name="idadeInput" oninput="validaridade()">
+      </div>
+      <div class="info-input">
+        <label for="number">Número:</label>
+        <input type="text"  id="numeroInput"  name="numeroInput" oninput="validarnumero()">
+      </div>
+
+       <div class="info-input">
+        <label for="email">Email:</label>
+        <input type="email" id="emailInput"  name="emailInput" oninput="validaremail()">
+      </div>
+      <button class="submit">Salvar</button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const form= document.querySelector("#form");
+    const nameInput = document.querySelector("#nomeInput");
+    const ageInput = document.querySelector("#idadeInput");
+    const numberInput = document.querySelector("#numeroInput");
+
+    const emailInput = document.querySelector("#emailInput");
+
+    form.addEventListener ("submit", (event)=>{
+      
+      event.preventDefault();
+
+      if (nameInput.value === "" || validarnome(nameInput.value) ){
+        alert("Por favor, preencha o seu nome ");
+        return;
+      }
+
+       if (ageInput.value === "" || validaridade( ageInput.value)){
+        alert("Por favor, preencha a sua idade ");
+        return;
+      }
+
+      if (numberInput.value === ""|| validarnumero(numberInput.value)){
+        alert("Por favor, preencha o seu número de telemóvel ");
+        return;
+      }
+
+
+      if (emailInput.value === "" || validaremail(emailInput.value)){
+        alert("Por favor, preencha o seu email ");
+        return;
+      }
+      form.submit();
+    });
+
+
+
+function validarnome(nome){
+  const nomeRegex= /^[a-zA-Z\s]+$/;
+  if(nomeRegex.test(nome)){
+    return false;
+  }
+  return true;
+ 
+}
+
+
+function validaridade(idade){
+if( idade <= 1 || idade >= 110){
+  return true;
+}
+    return false; 
+
+}
+
+
+function validarnumero(numero) {
+      const digitos = /^\d{9}$/;
+  if (digitos.test(numero)){
+    return false;
+  }
+  return true;
+  
+}
+
+
+function validaremail(email){
+  const emailRegex = new RegExp(
+     /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}$/
+  );
+  if (emailRegex.test(email)){
+    return false;
+  }
+  return true;
+}
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Pagina das Receitas</title>
     <style>
@@ -28,8 +29,9 @@ table, th, td {
     </style>
 </head>
 <body>
+    <a href="../Paciente/pacienteHome.html" class="delete_btn">Voltar Atrás </a>
     <h1>As Suas Receitas</h1>
-
+   
 <?php
 session_start(); // Inicie a sessão (se ainda não estiver iniciada)
 

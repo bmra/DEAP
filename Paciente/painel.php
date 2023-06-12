@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 $servername = "localhost";
@@ -11,15 +14,14 @@ $enter = new mysqli($servername, $username, $password, $database);
         }
 
 
-        $nome = isset($_POST['nome']) ? $_POST['nome'] : "";
-        $data = isset($_POST['data_nascimento']) ? $_POST['data_nascimento'] : "";
-        $numero = isset($_POST['telemovel']) ? $_POST['telemovel'] : "";
-        $utente = isset($_POST['numero_utente'])? $_POST['numero_utente'] : "";
-        $email = isset($_POST['email']) ? $_POST['email'] : "";
+        $nome = isset($_POST['nomeInput']) ? $_POST['nomeInput'] : "";
+        $idade = isset($_POST['idadeInput']) ? $_POST['idadeInput'] : "";
+        $numero = isset($_POST['numeroInput']) ? $_POST['numeroInput'] : "";
+        $email = isset($_POST['emailInput']) ? $_POST['emailInput'] : "";
         
 
 // Crie a consulta SQL para inserir os dados na tabela (substitua "nome_da_tabela" pelos valores corretos)
-$sql = "insert into pacientes (nome,data_nascimento,telemovel,numero_utente, email) VALUES ('$nome','$data','$telemovel','$utente, '$email')";
+$sql = "insert into pacientes (nome,idade,numero, email) VALUES ('$nome','$idade','$numero', '$email')";
 
 // Execute a consulta SQL
 if (mysqli_query($enter, $sql)) {
@@ -31,11 +33,10 @@ if (mysqli_query($enter, $sql)) {
 // Feche a conexão com o banco de dados
 mysqli_close($enter);
 // Após inserir os dados no banco de dados, redirecione o usuário de volta à página
+header("Location: dados.php");
+exit();
 
 ?>
-
-
-
 
 
 
