@@ -3,15 +3,57 @@
 <head>
     <title>Pagina de Agendamentos</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+     body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
 
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
-        }
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
     </style>
 </head>
 <body>

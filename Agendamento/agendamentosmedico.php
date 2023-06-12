@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pagina das Receitas</title>
+    <title>Pagina de Agendamentos</title>
     <style>
-       body {
+   body {
   background-color: #f2f2f2;
   font-family: Arial, sans-serif;
 }
@@ -24,11 +24,10 @@ table, th, td {
   padding: 8px;
   text-align: center;
 }
-
     </style>
 </head>
 <body>
-    <h1>As Suas Receitas</h1>
+    <h1>Os Seus Agendamentos</h1>
 
 <?php
 session_start(); // Inicie a sessão (se ainda não estiver iniciada)
@@ -52,7 +51,7 @@ if ($connection->connect_error) {
 }
 
     // Query para obter os agendamentos do usuário logado
-    $query = "SELECT id, id_medico, id_paciente,medicamento,ref_receita,descricao,data_emissao,data_validade, quantidade FROM receitas WHERE id_paciente = $user_id";
+    $query = "SELECT id, id_medico, id_paciente, data_agendamento, hora_agendamento, descricao FROM agendamentos WHERE id_medico = $user_id";
     // Executa a query
     $result = mysqli_query($connection, $query);
 
@@ -64,12 +63,9 @@ if ($connection->connect_error) {
         echo '<th>ID</th>';
         echo '<th>ID Medico</th>';
         echo '<th>ID Paciente</th>';
-        echo '<th>Medicamento</th>';
-        echo '<th>Referência da Receita</th>';
+        echo '<th>Data de Agendamento</th>';
+        echo '<th>Hora de Agendamento</th>';
         echo '<th>Descrição</th>';
-        echo '<th>Data de Emissão</th>';
-        echo '<th>Data de Validade</th>';
-        echo '<th>Quantidade</th>';
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
@@ -80,19 +76,16 @@ if ($connection->connect_error) {
             echo '<td>' . $row['id'] . '</td>';
             echo '<td>' . $row['id_medico'] . '</td>';
             echo '<td>' . $row['id_paciente'] . '</td>';
-            echo '<td>' . $row['medicamento'] . '</td>';
-            echo '<td>' . $row['ref_receita'] . '</td>';
+            echo '<td>' . $row['data_agendamento'] . '</td>';
+            echo '<td>' . $row['hora_agendamento'] . '</td>';
             echo '<td>' . $row['descricao'] . '</td>';
-            echo '<td>' . $row['data_emissao'] . '</td>';
-            echo '<td>' . $row['data_validade'] . '</td>';
-            echo '<td>' . $row['quantidade'] . '</td>';
             echo '</tr>';
         }
 
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo '<p>Não existem receitas para apresentar.</p>';
+        echo '<p>Não existem agendamentos para apresentar.</p>';
     }
 } else {
     echo '<p>Nenhum usuário está logado.</p>';

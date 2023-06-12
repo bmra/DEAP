@@ -3,15 +3,27 @@
 <head>
     <title>Pagina de Agendamentos</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+   body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
 
-        table, th, td {
-            border: 1px solid black;
-            padding: 8px;
-        }
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
     </style>
 </head>
 <body>
